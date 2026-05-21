@@ -24,7 +24,7 @@ def calculate_tax(annual_salary):
         tax_percentage = 30
         return annual_salary * ( tax_percentage / 100.0) 
     
-def wheres_the_money(salary, rent, bills, food, travel):
+def wheres_the_money(salary):
     """
     Converts salary into an organized financial chart
 
@@ -38,6 +38,11 @@ def wheres_the_money(salary, rent, bills, food, travel):
     Returns:
     str: An organized chart showing the breakdown of each arg.
     """
+    rent = int(input("How much monthly rent do you pay? Please input only numbers without commas. \n"))
+    bills = int(input("What are your monthly bills? Please input only numbers without commas. \n"))
+    food = int(input("How much do you spend on food per month? Please input only numbers without commas. \n"))
+    travel = int(input("How much do you spend on traveling per month? Please input only numbers without commas. \n"))
+
     tax = calculate_tax(salary)
 
     #Checks if the calc tax function output is more than 75k. 
@@ -126,6 +131,7 @@ def wheres_the_money(salary, rent, bills, food, travel):
         print(">>> TAX LIMIT REACHED <<<")
 
 def main():
-    calculate_tax(150000)
-    wheres_the_money(150000, 1500, 500, 300, 1000)
+    annual_salary = int(input("What is your annual salary? Please input only numbers without commas. \n"))
+    calculate_tax(annual_salary)
+    wheres_the_money(annual_salary)
 main()
